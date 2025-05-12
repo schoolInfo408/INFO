@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web servicio magtimus</title>
+    <link rel="stylesheet" href="iconos/css/fontello.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/estilos-index.css">
+    <link rel="stylesheet" href="css/footer.css">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<style>
+ /* Estilos específicos para el header con clase "menu-header" */
+.menu-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  padding: 1.2em 0;
+  box-shadow: 0 4px 30px rgba(255, 105, 180, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.menu-header nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2em;
+  padding: 0 1.5em;
+}
+
+.menu-header nav a {
+  font-family: 'Orbitron', sans-serif;
+  color: white !important;
+  text-decoration: none;
+  padding: 0.8em 1.8em;
+  border-radius: 12px;
+  font-weight: bold;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.2),
+    inset 0 3px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(0);
+  font-size: 0.95em;
+  letter-spacing: 1px;
+}
+
+/* Colores para cada enlace - adaptados a tus 8 elementos */
+.menu-header nav a:nth-child(1) { /* INICIO */
+  background: linear-gradient(to bottom, #FF00FF 0%, #CC00CC 100%);
+}
+.menu-header nav a:nth-child(2) { /* PÁGINA 1 */
+  background: linear-gradient(to bottom, #00FFFF 0%, #00CCCC 100%);
+}
+.menu-header nav a:nth-child(3) { /* PÁGINA 2 */
+  background: linear-gradient(to bottom, #FFD700 0%, #CCAA00 100%);
+}
+.menu-header nav a:nth-child(4) { /* PÁGINA 3 */
+  background: linear-gradient(to bottom, #7FFF00 0%, #66CC00 100%);
+}
+.menu-header nav a:nth-child(5) { /* PÁGINA 4 */
+  background: linear-gradient(to bottom, #9370DB 0%, #7A5DC8 100%);
+}
+.menu-header nav a:nth-child(6) { /* Host local */
+  background: linear-gradient(to bottom, #FF6347 0%, #CC4C38 100%);
+}
+.menu-header nav a:nth-child(7) { /* Página estática */
+  background: linear-gradient(to bottom, #20B2AA 0%, #198F89 100%);
+}
+.menu-header nav a:nth-child(8) { /* curriculun */
+  background: linear-gradient(to bottom, #FF8C00 0%, #FF4500 100%);
+}
+
+/* Efectos hover */
+.menu-header nav a:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.3),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.2),
+    inset 0 3px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Efecto al hacer clic */
+.menu-header nav a:active {
+  transform: translateY(1px);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Versión responsive */
+@media (max-width: 768px) {
+  .menu-header nav {
+    gap: 0.8em;
+    padding: 0.8em;
+  }
+  
+  .menu-header nav a {
+    padding: 0.7em 1.2em;
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-header nav {
+    gap: 0.5em;
+  }
+  
+  .menu-header nav a {
+    padding: 0.6em 0.8em;
+    font-size: 0.8em;
+  }
+}
+</style>
+
+</head>
+<body>
+  <header class="menu-header">
+    <nav>
+        <a href="../index.html">INICIO</a>
+      <a href="../Pag.1/index.html">PÁGINA 1</a>
+      <a href="index.html">PÁGINA 2</a>
+      <a href="../Pag.3/index.html">PÁGINA 3</a>
+      <a href="../Pag.4/index.html">PÁGINA 4</a>
+     <a href="../Pag.5/index.html">Host local</a>
+     <a href="../Pag.6/index.html">Página estática</a>
+    <a href="../Pag.7/curiculun.pdf">curriculun</a>
+
+    </nav>
+  </header>
+    <header>
+        <img src="images/logo_magtimus3.png" class="img-logo">
+        <input type="checkbox" id="check">
+        <label for="check" class="icon-menu"></label>
+        
+        <nav class="menu">
+            
+            <ul>
+                <li><a href="#" style="background:#df6666;color:white;">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Trabajos</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    
+    <main>
+        <div class="content-one">
+            <div class="content-portada">
+                <div class="content-item1">
+                    <h4>It Doesn't Take a Rocket <h3>Scientist</h3> </h4>
+                    <h2>IT TAKES A DESIGNER</h2>
+                </div>
+            </div>
+        </div>
+        <div class="content-two">
+            <div class="content-details">
+                <div class="content-item2">
+                    <label class="icon-heart"></label>
+                    <h4>Design</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ut nulla dicta, ab doloremque consequatur harum mollitia, ipsam minus magnam quaerat praesentium ratione, amet aperiam incidunt. Iste porro molestiae non.</p>
+                    
+                </div>
+                <div class="content-item2">
+                    <label class="icon-laptop"></label>
+                    <h4>Bootstrap</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ut nulla dicta, ab doloremque consequatur harum mollitia, ipsam minus magnam quaerat praesentium ratione, amet aperiam incidunt. Iste porro molestiae non.</p>
+                    
+                </div>
+                <div class="content-item2">
+                    <label class="icon-support"></label>
+                    <h4>Support</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ut nulla dicta, ab doloremque consequatur harum mollitia, ipsam minus magnam quaerat praesentium ratione, amet aperiam incidunt. Iste porro molestiae non.</p>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="content-three">
+            <div class="content-module">
+                <h3>LATEST WORKS</h3>
+                <img src="images/img2.png">
+                <img src="images/img3.png">
+                <img src="images/img4.png">
+            </div>
+        </div>
+        <div class="content-for">
+            <div class="content-item3">
+                <h4>WE CREATE FIRST CLASS DESIGN</h4>
+                <p>By being true to the brand we represent, we elevate the audiences’ relationship to it. Like becomes love becomes a passion. Passion becomes advocacy. And we see the brand blossom from within, creating a whole story the audience embraces. That’s when the brand can truly flex its muscles.</p>
+                <img src="images/img5.png">
+            </div>
+            <div class="content-five">
+                <div class="content-item4">
+                    <h4>WE ARE STORYTELLERS. BRANDS ARE OUR SUBJECTS. DESIGN IS OUR VOICE.</h4>
+                    <p>We believe ideas come from everyone, everywhere. At BlackTie, everyone within our agency walls is a designer in their own right. And there are a few principles we believe—and we believe everyone should believe—about our design craft. These truths drive us, motivate us, and ultimately help us redefine the power of design.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <label class="icon-twitter"></label>
+        <label class="icon-facebook"></label>
+        <label class="icon-instagram"></label>
+    </footer>
+</body>
+</html>
