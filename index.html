@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mundo de Colores</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #ffe8f5 100%);
+      color: #333;
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      padding: 1.2em 0;
+      box-shadow: 0 4px 30px rgba(255, 105, 180, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2em;
+      padding: 0 1.5em;
+    }
+
+    nav a {
+      font-family: 'Orbitron', sans-serif;
+      color: white !important;
+      text-decoration: none;
+      padding: 0.8em 1.8em;
+      border-radius: 12px;
+      font-weight: bold;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.2),
+        inset 0 -3px 0 rgba(0, 0, 0, 0.2),
+        inset 0 3px 0 rgba(255, 255, 255, 0.2);
+      transform: translateY(0);
+      font-size: 0.95em;
+      letter-spacing: 1px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px 12px 0 0;
+    }
+
+    nav a:hover {
+      transform: translateY(-3px);
+      box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.3),
+        inset 0 -3px 0 rgba(0, 0, 0, 0.2),
+        inset 0 3px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    nav a:active {
+      transform: translateY(1px);
+      box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    nav a:nth-child(1) {
+      background: linear-gradient(to bottom, #FF00FF 0%, #CC00CC 100%);
+    }
+    nav a:nth-child(2) {
+      background: linear-gradient(to bottom, #00FFFF 0%, #00CCCC 100%);
+    }
+    nav a:nth-child(3) {
+      background: linear-gradient(to bottom, #FFD700 0%, #CCAA00 100%);
+    }
+    nav a:nth-child(4) {
+      background: linear-gradient(to bottom, #7FFF00 0%, #66CC00 100%);
+    }
+    nav a:nth-child(5) {
+      background: linear-gradient(to bottom, #9370DB 0%, #7A5DC8 100%);
+    }
+    nav a:nth-child(6) {
+      background: linear-gradient(to bottom, #FF6347 0%, #CC4C38 100%);
+    }
+    nav a:nth-child(7) {
+      background: linear-gradient(to bottom, #20B2AA 0%, #198F89 100%);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      padding: 4em 2em;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .imagen-destacada {
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 3em;
+      position: relative;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(255, 0, 255, 0.3);
+      border: 5px solid white;
+    }
+
+    .imagen-destacada img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .imagen-destacada:hover img {
+      transform: scale(1.1);
+    }
+
+    .contenido-principal {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 0.5em;
+      line-height: 1.2;
+      background: linear-gradient(45deg, 
+        #FF00FF 20%, 
+        #00FFFF 40%, 
+        #FFD700 60%, 
+        #7FFF00 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      font-size: 1.3em;
+      color: #555;
+      margin-bottom: 2em;
+      line-height: 1.7;
+    }
+
+    .boton-principal {
+      display: inline-block;
+      padding: 1.2em 2.5em;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      border-radius: 50px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 
+        0 6px 12px rgba(255, 0, 255, 0.3),
+        inset 0 -4px 0 rgba(0, 0, 0, 0.2),
+        inset 0 4px 0 rgba(255, 255, 255, 0.2);
+      border: none;
+      z-index: 1;
+      margin: 1em;
+    }
+
+    .boton-principal::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, 
+        #FF00FF 0%, 
+        #00FFFF 50%, 
+        #FFD700 100%);
+      z-index: -1;
+      transition: opacity 0.4s;
+    }
+
+    .boton-principal::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50px 50px 0 0;
+    }
+
+    .boton-principal:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 
+        0 10px 20px rgba(255, 0, 255, 0.5),
+        inset 0 -4px 0 rgba(0, 0, 0, 0.2),
+        inset 0 4px 0 rgba(255, 255, 255, 0.2);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: translateY(-5px) scale(1.05); }
+      50% { transform: translateY(-5px) scale(1.1); }
+      100% { transform: translateY(-5px) scale(1.05); }
+    }
+
+    .caracteristicas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+      padding: 4em 2em;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      margin-top: 3em;
+    }
+
+    .tarjeta {
+      flex: 1;
+      min-width: 280px;
+      max-width: 350px;
+      padding: 2em;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .tarjeta h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5em;
+      margin-bottom: 0.8em;
+      color: #333;
+    }
+
+    .tarjeta p {
+      font-size: 1em;
+      color: #666;
+    }
+
+    .tarjeta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, 
+        #FF00FF, #00FFFF, #FFD700, #7FFF00);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2em;
+      background: #333;
+      color: white;
+      margin-top: 3em;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5em;
+      }
+      
+      p {
+        font-size: 1.1em;
+      }
+      
+      .hero {
+        padding: 2em 1em;
+      }
+      
+      nav {
+        gap: 0.8em;
+        padding: 0.8em;
+      }
+      
+      nav a {
+        padding: 0.7em 1.5em;
+        font-size: 0.9em;
+      }
+      
+      .boton-principal {
+        padding: 1em 2em;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">INICIO</a>
+      <a href="Pag.1/index.html">PÁGINA 1</a>
+      <a href="Pag.2/index.html">PÁGINA 2</a>
+      <a href="Pag.3/index.html">PÁGINA 3</a>
+      <a href="Pag.4/index.html">PÁGINA 4</a>
+     <a href="Pag.5/index.html">Host local</a>
+     <a href="Pag.6/index.html">Página estática</a>
+    <a href="Pag.7/curiculun.pdf">curriculun</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="imagen-destacada">
+        <img src="https://images.unsplash.com/photo-1579547945413-497e1b99dac0" alt="Explosión de colores vibrantes">
+      </div>
+      
+      <div class="contenido-principal">
+        <h1>Descubre un Mundo Lleno de Color</h1>
+        <p>Sumérgete en una experiencia visual única donde los colores cobran vida. Nuestra plataforma te ofrece las herramientas y el inspiración para crear diseños vibrantes que cautivarán a tu audiencia.</p>
+       
+      </div>
+    </section>
+
+    <section id="caracteristicas" class="caracteristicas">
+      <div class="tarjeta">
+        <h3>Paletas Vibrantes</h3>
+        <p>Accede a cientos de combinaciones de colores cuidadosamente seleccionadas para hacer brillar tus diseños.</p>
+      </div>
+      
+      <div class="tarjeta">
+        <h3>Herramientas Creativas</h3>
+        <p>Nuestro kit de herramientas te permite experimentar con colores de formas innovadoras y sorprendentes.</p>
+      </div>
+      
+      <div class="tarjeta">
+        <h3>Inspiración Diaria</h3>
+        <p>Recibe dosis diarias de inspiración con nuestros ejemplos y casos de estudio de diseñadores profesionales.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2023 Mundo de Colores. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Efecto de partículas flotantes
+    document.addEventListener('DOMContentLoaded', function() {
+      const colors = ['#FF00FF', '#00FFFF', '#FFD700', '#7FFF00', '#9370DB', '#FF6347'];
+      
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'fixed';
+        particle.style.borderRadius = '50%';
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.width = Math.random() * 15 + 5 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.top = Math.random() * 100 + 'vh';
+        particle.style.opacity = Math.random() * 0.6 + 0.2;
+        particle.style.zIndex = '-1';
+        particle.style.pointerEvents = 'none';
+        particle.style.animation = `float ${Math.random() * 20 + 10}s linear infinite`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        
+        document.body.appendChild(particle);
+      }
+    });
+
+    // Animación para las partículas
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes float {
+        0% { transform: translateY(0) translateX(0); }
+        25% { transform: translateY(-100px) translateX(20px); }
+        50% { transform: translateY(-200px) translateX(0); }
+        75% { transform: translateY(-300px) translateX(-20px); }
+        100% { transform: translateY(-400px) translateX(0); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
