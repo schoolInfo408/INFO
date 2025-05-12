@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelo Entidad-Relación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #2E86C1;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #1A5276;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      display: none; /* Ocultar todas las secciones */
+      padding: 20px;
+      max-width: 1000px;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    section.active {
+      display: block; /* Mostrar solo la sección activa */
+    }
+    footer {
+      background-color: #2E86C1;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    h2 {
+      color: #2E86C1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Modelo Entidad-Relación (ER)</h1>
+    <p>Explora y aprende más sobre este modelo</p>
+  </header>
+  <nav>
+    <!-- Enlaces del índice -->
+    <a onclick="showSection('inicio')">Inicio</a>
+    <a onclick="showSection('componentes')">Componentes</a>
+    <a onclick="showSection('ejemplos')">Ejemplos</a>
+    <a onclick="showSection('ventajas')">Ventajas</a>
+    <a onclick="showSection('contacto')">Contacto</a>
+  </nav>
+  <!-- Secciones de contenido -->
+  <section id="inicio" class="active">
+    <h2>Inicio</h2>
+    <p>El modelo entidad-relación (ER) es fundamental para diseñar bases de datos de manera lógica y estructurada, representando entidades, atributos y relaciones.</p>
+  </section>
+  <section id="componentes">
+    <h2>Componentes del Modelo ER</h2>
+    <ul>
+      <li><strong>Entidades:</strong> Representan objetos del mundo real.</li>
+      <li><strong>Atributos:</strong> Describen las propiedades de las entidades.</li>
+      <li><strong>Relaciones:</strong> Conexiones entre las entidades.</li>
+      <li><strong>Cardinalidad:</strong> Muestra cuántas conexiones pueden existir entre entidades.</li>
+    </ul>
+  </section>
+  <section id="ejemplos">
+    <h2>Ejemplos Prácticos</h2>
+    <p><strong>Escenario:</strong> Tienda en línea</p>
+    <ul>
+      <li><strong>Entidades:</strong> Cliente, Producto, Pedido.</li>
+      <li><strong>Relaciones:</strong> Un cliente realiza pedidos, un pedido incluye productos.</li>
+    </ul>
+  </section>
+  <section id="ventajas">
+    <h2>Ventajas del Modelo ER</h2>
+    <ul>
+      <li>Aporta claridad al organizar datos.</li>
+      <li>Facilita el diseño de bases de datos complejas.</li>
+      <li>Permite identificar problemas antes de implementarlos.</li>
+    </ul>
+  </section>
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>📧 <strong>Correo:</strong> contacto@ejemplo.com</p>
+    <p>🌐 <strong>Recursos:</strong> <a href="https://es.wikipedia.org/wiki/Modelo_entidad-relación" target="_blank">Wikipedia</a></p>
+  </section>
+  <footer>
+    <p>&copy; 2025 Modelo ER. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      // Ocultar todas las secciones
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => section.classList.remove('active'));
+
+      // Mostrar la sección seleccionada
+      const activeSection = document.getElementById(sectionId);
+      activeSection.classList.add('active');
+    }
+  </script>
+</body>
+</html>

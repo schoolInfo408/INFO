@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario: Componentes de la Placa Madre</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:gray;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            width: 50%;
+            margin: auto;
+            border-radius: 10px;
+        }
+        label, select, button {
+            display: block;
+            margin: 10px auto;
+        }
+        select, button {
+            padding: 10px;
+            width: 80%;
+            border-radius: 5px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .clear-button {
+            background: #dc3545;
+        }
+        .clear-button:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulario: Componentes de la Placa Madre</h2>
+        <form id="quizForm">
+            <label for="cpu">1. ¿Cuál es el componente encargado de procesar datos?</label>
+            <select id="cpu" required>
+                <option value="">Selecciona una opción</option>
+                <option value="ram">Memoria RAM</option>
+                <option value="cpu">Procesador (CPU)</option>
+                <option value="gpu">Tarjeta de video (GPU)</option>
+            </select>
+
+            <label for="ram">2. ¿Cuál almacena temporalmente los datos en uso?</label>
+            <select id="ram" required>
+                <option value="">Selecciona una opción</option>
+                <option value="ram">Memoria RAM</option>
+                <option value="rom">Memoria ROM</option>
+                <option value="hdd">Disco Duro (HDD)</option>
+            </select>
+
+            <label for="puertos">3. ¿Para qué sirven los puertos de la placa madre?</label>
+            <select id="puertos" required>
+                <option value="">Selecciona una opción</option>
+                <option value="conectar">Conectar dispositivos externos</option>
+                <option value="almacenar">Almacenar datos</option>
+                <option value="procesar">Procesar información</option>
+            </select>
+
+            <button type="submit">Enviar</button>
+            <button type="button" class="clear-button" id="clearForm">Borrar</button>
+        </form>
+        <p id="resultado"></p>
+    </div>
+    
+    <script>
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let respuestasCorrectas = { cpu: "cpu", ram: "ram", puertos: "conectar" };
+            let puntaje = 0;
+            
+            Object.keys(respuestasCorrectas).forEach(id => {
+                let respuesta = document.getElementById(id).value;
+                if (respuesta === respuestasCorrectas[id]) {
+                    puntaje++;
+                }
+            });
+            
+            document.getElementById("resultado").innerText = `Puntaje obtenido: ${puntaje}/3`;
+        });
+
+        document.getElementById("clearForm").addEventListener("click", function() {
+            document.getElementById("quizForm").reset();
+            document.getElementById("resultado").innerText = "";
+        });
+    </script>
+</body>
+</html>
